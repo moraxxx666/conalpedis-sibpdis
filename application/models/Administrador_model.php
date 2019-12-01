@@ -61,4 +61,33 @@ class Administrador_model extends CI_Model
             return $query->result_array();
         } else return null;
     }
+    public function ListarBeneficios()
+    {
+        $query = $this->db->query("SELECT * FROM sibpdis_beneficios");
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else return array();
+    }
+    public function AgregarBeneficio($Beneficio)
+    {
+        if ($this->db->insert('sibpdis_beneficios', $Beneficio)) {
+            return true;
+        } else return false;
+    }
+    public function AgregarBeneficioPcD($Beneficio)
+    {
+        if ($this->db->insert('sibpdis_PcD_beneficios', $Beneficio)) {
+            return true;
+        } else return false;
+    }
+    public function BeneficiosPcD($nro_registro)
+    {
+        $query = $this->db->query("SELECT beneficio.nombre_beneficio, beneficio.descripcion_beneficio, bene.fecha_beneficio,bene.costo_estimado
+        FROM sibpdis_PcD_beneficios bene, sibpdis_beneficios beneficio
+        WHERE bene.id_beneficio = beneficio.id_beneficio and bene.nro_registro = '$nro_registro'");
+        
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else return array();
+    }
 }

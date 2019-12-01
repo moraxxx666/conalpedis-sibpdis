@@ -26,7 +26,7 @@
 
                 </div>
                 <div class="col s6">
-                    <p class="center-align"><?php echo $PcD['ci'] . " ( " . $PcD['expedido'].")" ?></p>
+                    <p class="center-align"><?php echo $PcD['ci'] . " ( " . $PcD['expedido'] . ")" ?></p>
                 </div>
 
 
@@ -174,6 +174,42 @@
                     <div class="col s6">
                         <p class="center-align"><?php echo $rehabilitacion == null ? 'No' : $rehabilitacion['rehabilitacion']  ?></p>
                     </div>
+                </div>
+            </div>
+            <div class="card">
+                <p class="card-title center-align"><b> Beneficios Otorgados</b></p>
+                <div class="row">
+                    <?php foreach ($beneficios as $beneficio) { ?>
+                        <div class="beneficio">
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    <p class="center-align"><b>Beneficio: </b></p>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p class="center-align"><?php echo $beneficio['nombre_beneficio'] ?></p>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p class="center-align"><b>Descripción del Beneficio:</b></p>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p class="center-align"><?php echo $beneficio['descripcion_beneficio'] ?></p>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p class="center-align"><b>Fecha en la que se recibio el Beneficio</b></p>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p class="center-align"><?php echo $beneficio['fecha_beneficio'] ?></p>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p class="center-align"><b>Costo Estimado del Beneficio</b></p>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p class="center-align"><?php echo $beneficio['costo_estimado'] ?></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
